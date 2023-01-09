@@ -3,8 +3,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-//import java.util.Calendar;
-//import java.util.Date;
+
 
 public class SendScheduledMessagesWithAttachments {
   public static void main(String[] args) {
@@ -40,18 +39,5 @@ public class SendScheduledMessagesWithAttachments {
         }
       }
     }, /*fecha y hora de envío*/);
-    
-    
-       /* // De forma alternativa se puede hacer una instancia de la clase Calendar que represente la fecha y hora actual
-    Calendar calendar = Calendar.getInstance();
-
-    // Establece la fecha y hora de envío en el 2 de enero de 2023 a las 10:00 AM
-    calendar.set(Calendar.YEAR, 2023);
-    calendar.set(Calendar.MONTH, Calendar.JANUARY);
-    calendar.set(Calendar.DATE, 2);
-    calendar.set(Calendar.HOUR_OF_DAY, 10);
-    calendar.set(Calendar.MINUTE, 0);
-    calendar.set(Calendar.SECOND, 0); 
-    */
-    }
+  }
 }
