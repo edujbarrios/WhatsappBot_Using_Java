@@ -1,6 +1,6 @@
 import java.util.Timer;
 import java.util.TimerTask;
-import com.whatsapp.API;
+import com.whatsapp.Whatsapp;
 
 public class WhatsAppScheduler {
   public static void main(String[] args) {
@@ -62,10 +62,10 @@ public class WhatsAppScheduler {
    }
   }
 
-  // Clase que representa la tarea de detener el planificador
+  // Clase que representa la tarea de detener el planificador cuando sea necesario
   private static class StopTask extends TimerTask {
     public void run() {
       timer.cancel();
     }
-  }  0, 86400000); // Ejecutar la tarea cada 24 horas (86400000 milisegundos) en caso de querer cambiar mensajes, ejecutar el fichero de nuevo
+  }  0, 86400000); // Ejecuta la tarea cada 24 horas (86400000 milisegundos)
 }
