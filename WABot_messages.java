@@ -7,14 +7,10 @@ public class WhatsAppScheduler {
     // Creamos una nueva instancia de Timer
     Timer timer = new Timer();
 
-    // Programamos la tarea para que se ejecute cada 10 minutos entre las 6:00 AM y las 8:00 AM
-    // Si tenemos mas de 6 personas, se enviarán a horas aleatorias entre este baremo de horas
+    // Programamos la tarea para que se ejecute aleatoriamente entre 6:00 AM y las 8:00 AM
     Random random = new Random();
     
     int minute = random.nextInt(120) + 360;
-    long interval = 10 * 60 * 1000; // 10 minutos en milisegundos
-    long startTime = get7AM().getTimeInMillis();
-    long endTime = get8AM().getTimeInMillis();
     timer.schedule(new SendWhatsAppMessageTask(), startTime, interval);
     timer.schedule(new StopTask(), endTime);
   }
@@ -34,8 +30,8 @@ public class WhatsAppScheduler {
             new Message("+34666444111", "Se puede hacer un \n Punto y aparte \n Por si no lo sabías"),
             new Message("+3466666666", "Date cuenta de esto \n\n Es importante el doble salto")
         );
-  // Si la hora actual está entre las 7 AM y las 8 AM, enviar el mensaje
-        if (now.get(Calendar.HOUR_OF_DAY) >= 7 && now.get(Calendar.HOUR_OF_DAY) < 8) {        // Envía cada mensaje a su destinatario correspondiente
+  // Si la hora actual está entre las 6 AM y las 8 AM, enviar el mensaje
+        if (now.get(Calendar.HOUR_OF_DAY) >= 6 && now.get(Calendar.HOUR_OF_DAY) < 8) {   // Envía cada mensaje a su destinatario correspondiente (a horas comprendidas entre las 6AM y las 8AM) 
         do (Message message : messages) {
             api.sendMessage(message.getRecipient(), message.getText());   
         }
