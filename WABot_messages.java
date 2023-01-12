@@ -7,10 +7,10 @@ public class WhatsAppScheduler {
     // Creamos una nueva instancia de Timer
     Timer timer = new Timer();
 
-    // Programamos la tarea para que se ejecute aleatoriamente entre 6:00 AM y las 8:00 AM
+    // Programamos los mensajes programados se envien aleatoriamente entre 7:30 AM y las 8:00 AM
     Random random = new Random();
     
-    int minute = random.nextInt(120) + 360;
+    int minute = random.nextInt(30) + 360;
     timer.schedule(new SendWhatsAppMessageTask(), startTime, interval);
     timer.schedule(new StopTask(), endTime);
   }
@@ -26,12 +26,12 @@ public class WhatsAppScheduler {
 
         // Crea una lista de mensajes y destinatarios
         List<Message> messages = Arrays.asList(
-            new Message("+34666111222", "Hola!💙"),
-            new Message("+34666444111", "Se puede hacer un \n Punto y aparte \n Por si no lo sabías"),
+            new Message("+3466611122", "Hola!💙"),
+            new Message("+3466644411", "Se puede hacer un \n Punto y aparte \n Por si no lo sabías"),
             new Message("+3466666666", "Date cuenta de esto \n\n Es importante el doble salto")
         );
-  // Si la hora actual está entre las 6 AM y las 8 AM, enviar el mensaje
-        if (now.get(Calendar.HOUR_OF_DAY) >= 6 && now.get(Calendar.HOUR_OF_DAY) < 8) {   // Envía cada mensaje a su destinatario correspondiente (a horas comprendidas entre las 6AM y las 8AM) 
+  // Si la hora a la que se ejecuta el secript se encuentra entre las 6 AM y las 8 AM, enviar mensajes programdos
+        if (c.get(Calendar.HOUR_OF_DAY.MINUTE) >= 7, 30 && now.get(Calendar.HOUR_OF_DAY.MINUTE) < 8, 0) {   // Envía cada mensaje a su destinatario correspondiente (a horas comprendidas entre las 6AM y las 8AM) 
         do (Message message : messages) {
             api.sendMessage(message.getRecipient(), message.getText());   
         }
@@ -67,5 +67,11 @@ public class WhatsAppScheduler {
     public void run() {
       timer.cancel();
     }
-  }  0, 86400000); // Ejecuta la tarea cada 24 horas (86400000 milisegundos)
+  // Programación de la hora a la que se ejecuta el script
+  }  c.set(Calendar.HOUR_OF_DAY, 7);
+        c.set(Calendar.MINUTE, 30);
+        c.set(Calendar.SECOND, 0);
+        
+        CuandoSeEjecuta = c.getTime();
+        int ejecucion_script = 86400000;) // Ejecuta la tarea cada 24 horas (86400000 milisegundos)
 }
