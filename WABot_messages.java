@@ -31,7 +31,7 @@ public class WhatsAppScheduler {
             new Message("+3466666666", "Date cuenta de esto \n\n Es importante el doble salto")
         );
   // Si la hora a la que se ejecuta el secript se encuentra entre las 6 AM y las 8 AM, enviar mensajes programdos
-        if (c.get(Calendar.HOUR_OF_DAY.MINUTE) >= 7, 30 && now.get(Calendar.HOUR_OF_DAY.MINUTE) < 8, 0) {   // Envía cada mensaje a su destinatario correspondiente (a horas comprendidas entre las 6AM y las 8AM) 
+        if (c.get(Calendar.HOUR_OF_DAY.MINUTE) >= 7, 30 && now.get(Calendar.HOUR_OF_DAY.MINUTE) < 8, 0) {  
         do (Message message : messages) {
             api.sendMessage(message.getRecipient(), message.getText());   
         }
