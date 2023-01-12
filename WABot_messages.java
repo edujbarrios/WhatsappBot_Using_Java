@@ -7,10 +7,10 @@ public class WhatsAppScheduler {
     // Creamos una nueva instancia de Timer
     Timer timer = new Timer();
 
-    // Programamos los mensajes programados se envien aleatoriamente entre 7:30 AM y las 8:00 AM
+    // Los mensajes programados se envien aleatoriamente entre 7:30 AM y las 8:00 AM
     Random random = new Random();
     
-    int minute = random.nextInt(30) + 360;
+    int minute = random.nextInt(30) + 1800; // Segundos
     timer.schedule(new SendWhatsAppMessageTask(), startTime, interval);
     timer.schedule(new StopTask(), endTime);
   }
@@ -30,7 +30,7 @@ public class WhatsAppScheduler {
             new Message("+3466644411", "Se puede hacer un \n Punto y aparte \n Por si no lo sabías"),
             new Message("+3466666666", "Date cuenta de esto \n\n Es importante el doble salto")
         );
-  // Si la hora a la que se ejecuta el secript se encuentra entre las 6 AM y las 8 AM, enviar mensajes programdos
+  // Si la hora a la que se ejecuta el secript se encuentra entre las 7:30 AM y las 8 AM, enviar mensajes programdos
         if (c.get(Calendar.HOUR_OF_DAY.MINUTE) >= 7, 30 && now.get(Calendar.HOUR_OF_DAY.MINUTE) < 8, 0) {  
         do (Message message : messages) {
             api.sendMessage(message.getRecipient(), message.getText());   
